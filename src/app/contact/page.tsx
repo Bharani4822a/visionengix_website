@@ -45,9 +45,9 @@ export default function Contact() {
                                 <Mail className="text-neon-purple" /> Connect Directly
                             </h3>
                             <div className="space-y-4">
-                                <button className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-xl transition-colors">
+                                <a href="https://wa.me/916381323993" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-xl transition-colors">
                                     Chat on WhatsApp
-                                </button>
+                                </a>
                                 <button className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-black font-bold py-4 rounded-xl transition-colors">
                                     Internship Application
                                 </button>

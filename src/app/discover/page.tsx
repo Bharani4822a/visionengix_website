@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const leadership = [
     { name: "Sudhersan G", role: "Founder & CEO", focus: "AI, Web Technologies, Training & Development" },
-    { name: "Mohammed", role: "CTO", focus: "AI Systems Architect" },
+    { name: "Mohammed shammeer", role: "CTO", focus: "AI Systems Architect" },
     { name: "Sivaranjani Deepak", role: "Marketing Lead", focus: "Marketing & Business Strategy" },
     { name: "Deepak R K", role: "Business Operations Lead", focus: "Operations & Strategy" },
 ];
