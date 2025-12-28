@@ -1,9 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Code, Smartphone, Brain, Rocket } from "lucide-react";
+import Image from "next/image";
+
+const slides = [
+    {
+        text: "Dream is not that which you see while sleeping it is something that does not let you sleep.",
+        image: "/abdul_kalam_1.jpg"
+    },
+    {
+        text: "You have to dream before your dreams can come true.",
+        image: "/abdul_kalam_2.jpg"
+    },
+    {
+        text: "Thinking is the capital, Enterprise is the way, Hard Work is the solution.",
+        image: "/abdul_kalam_3.jpg"
+    },
+    {
+        text: "If you want to shine like a sun, first burn like a sun.",
+        image: "/abdul_kalam_4.jpg"
+    },
+    {
+        text: "To succeed in your mission, you must have single-minded devotion to your goal.",
+        image: "/abdul_kalam_5.jpg"
+    }
+];
 
 export default function Blogs() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <div className="min-h-screen pt-32 pb-20 px-4 relative flex flex-col items-center">
             <motion.div
@@ -27,7 +61,7 @@ export default function Blogs() {
                 </p>
 
                 {/* Technologies Section */}
-                <div className="w-full">
+                <div className="w-full mb-24">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-12">
                         Technologies We <span className="text-neon-blue">Master</span>
                     </h2>
@@ -71,6 +105,51 @@ export default function Blogs() {
                         ))}
                     </div>
                 </div>
+
+                {/* Inspiration Carousel */}
+                <div className="w-full max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-white mb-8">Inspiration</h2>
+                    <div className="relative min-h-[400px] flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ duration: 0.5 }}
+                                className="flex flex-col md:flex-row items-center gap-24 w-full"
+                            >
+                                <div className="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 rounded-full overflow-hidden border-4 border-neon-blue shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                                    <Image
+                                        src={slides[currentSlide].image}
+                                        alt="Dr. APJ Abdul Kalam"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div className="flex-1 text-center md:text-left">
+                                    <p className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed">
+                                        "{slides[currentSlide].text}"
+                                    </p>
+                                    <p className="mt-4 text-neon-blue font-bold text-lg">- Dr. APJ Abdul Kalam</p>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Indicators */}
+                        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                            {slides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentSlide(index)}
+                                    className={`w-3 h-3 rounded-full transition-all ${index === currentSlide ? "bg-neon-blue w-8" : "bg-white/30"
+                                        }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
             </motion.div>
         </div>
     );
