@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const leadership = [
-    { name: "Sudhersan G", role: "Founder & CEO", focus: "AI, Web Technologies, Training & Development" },
-    { name: "Mohammed shammeer", role: "CTO", focus: "AI Systems Architect" },
-    { name: "Sivaranjani Deepak", role: "Marketing Lead", focus: "Marketing & Business Strategy" },
-    { name: "Deepak R K", role: "Business Operations Lead", focus: "Operations & Strategy" },
-];
+
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -99,37 +94,7 @@ export default function Discover() {
                 </motion.div>
             </section>
 
-            {/* Leadership */}
-            <section className="py-20 container mx-auto px-4">
-                <motion.h2
-                    className="text-3xl font-bold text-center mb-16"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                >
-                    Leadership Team
-                </motion.h2>
 
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={containerVariants}
-                >
-                    {leadership.map((leader, index) => (
-                        <motion.div
-                            key={leader.name}
-                            variants={itemVariants}
-                            className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-colors"
-                        >
-                            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6 blur-none" />
-                            <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
-                            <p className="text-neon-blue font-medium text-sm mb-3">{leader.role}</p>
-                            <p className="text-gray-400 text-xs">{leader.focus}</p>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </section>
         </div >
     );
 }

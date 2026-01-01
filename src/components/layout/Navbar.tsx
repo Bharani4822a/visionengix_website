@@ -13,7 +13,7 @@ const navItems = [
     { name: "Discover", href: "/discover" },
     { name: "Why Us", href: "/why-us" },
     { name: "Pathways", href: "/pathways" },
-    { name: "Testimonials", href: "/testimonials" },
+    // { name: "Testimonials", href: "/testimonials" },
     { name: "Community", href: "/community" },
     { name: "SaaS", href: "/saas" },
     { name: "Blogs", href: "/blogs" },
